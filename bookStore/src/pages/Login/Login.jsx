@@ -6,7 +6,7 @@ function Login(){
             <section>
                 <div className="container my-4">
                     <div className="row d-flex justify-content-center">
-                        <div className="col-lg-9 col-md-8 p-0">
+                        <div className="col-lg-6 col-md-9 col-sm-12 p-0">
                                 <div className="card">
                                     <div className="card-header bg-white">
                                         <div className="card-title ">

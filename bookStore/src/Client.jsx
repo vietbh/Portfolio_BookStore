@@ -10,6 +10,9 @@ import DetailProduct from "./pages/Product/DetailProduct";
 import Checkout from "./pages/Checkout/Checkout";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 import Blog from "./pages/Blog/Blog";
+import Page403 from './pages/Admin/400/Page403';
+import DetailBlog from "./pages/Blog/DetailBlog";
+
 
  function Client(){
     return(
@@ -25,7 +28,9 @@ import Blog from "./pages/Blog/Blog";
             <Route path="/gio-hang" element={<Cart />} />
             <Route path="/chi-tiet-san-pham" element={<DetailProduct />} />
             <Route path="/tien-hanh-dat-hang" element={<Checkout />} />
-          </Routes>
+            <Route path="/chi-tiet-bai-viet" element={<DetailBlog />} />
+            <Route path="*" element={<Page403 />} />
+            </Routes>
           <Footer />
         </div>
     );

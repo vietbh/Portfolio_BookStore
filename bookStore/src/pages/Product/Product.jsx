@@ -1,10 +1,8 @@
-// import React from 'react';
 
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import API_URL from "../../config/Api";
-import { Button } from "bootstrap";
 
 function Product() {
 
@@ -15,13 +13,12 @@ function Product() {
     const [categories,setCategories] = useState([]);
     const [loading,setLoading] = useState(false);
     const [grid,setGrid] = useState(4);
-      console.log(grid);
     const fetchDataCategory = async() => {
         try {
             setLoading(true);
             const response = await axios.get(API_URL.concat('/categories'));
             const data = await response.data;
-            // console.log(data);
+            console.log(data);
             setCategories(data);
             setLoading(false);
           } catch (error) {
@@ -51,35 +48,46 @@ function Product() {
     useEffect(() => {
  
       fetchData();
-      // fetchDataCategory();
+      fetchDataCategory();
     }, []);
     useEffect(() => {
       // Đặt điều kiện để chỉ gọi fetchData khi loading là true
       if (loading) {
         fetchData();
-        // fetchDataCategory();
+        fetchDataCategory();
       }
     }, [loading]);
     const product = products.map((product) => {
       return (
-      <div key={product.book_id} className={`col-lg-${grid} col-sm-6`}>
-        <div className="product text-center">
-          <div className="mb-3 position-relative">
-            <div className="badge text-white bg-"></div><a className="d-block" href="detail.html"><img className="img-fluid w-100" src={product.book_image} alt="..."/></a>
-            <div className="product-overlay">
-              <ul className="mb-0 list-inline">
-                <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-outline-dark" href="#!"><i className="far fa-heart"></i></a></li>
-                <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                <li className="list-inline-item mr-0"><a className="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i className="fas fa-expand"></i></a></li>
-              </ul>
+        <div key={product.book_id} className={`col-lg-${grid} col-sm-6`}>
+          <div className="product text-center">
+            <div className="mb-3 position-relative">
+              <div className="badge text-white bg-"></div><a className="d-block" href="detail.html"><img className="img-fluid w-100" src={product.book_image} alt="..."/></a>
+              <div className="product-overlay">
+                <ul className="mb-0 list-inline">
+                  <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-outline-dark" href="#!"><i className="far fa-heart"></i></a></li>
+                  <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                  <li className="list-inline-item mr-0"><a className="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i className="fas fa-expand"></i></a></li>
+                </ul>
+              </div>
             </div>
+            <h6> <Link className="reset-anchor" to="/chi-tiet-san-pham/:id">{product.book_title}</Link></h6>
+            <p className="small text-muted">{product.book_price*1000} vnd</p>
           </div>
-          <h6> <Link className="reset-anchor" to="/chi-tiet-san-pham/:id">{product.book_title}</Link></h6>
-          <p className="small text-muted">{product.book_price*1000} vnd</p>
         </div>
-      </div>
       );
-    })
+    });
+
+    const category = categories.map((category) => {
+      return (
+        <div key={category.category_id}>
+          <ul className="list-unstyled small text-muted ps-lg-4 font-weight-normal">
+            <li className="mb-2"><button className="btn rounded-0 reset-anchor" href="#!">{category.category_name}</button></li>
+          </ul>
+        </div>
+      );
+    });
+
     return (
         <>
           {/*Modal */}
@@ -152,15 +160,8 @@ function Product() {
 
                   <div className="col-lg-3 order-2 order-lg-1">
                     <h5 className="text-uppercase mb-4">Danh mục</h5>
-                    <div className="py-2 px-4 bg-dark text-white mb-3"><strong className="small text-uppercase fw-bold">Fashion &amp; Acc</strong></div>
-                    <ul className="list-unstyled small text-muted ps-lg-4 font-weight-normal">
-                      <li className="mb-2"><a className="reset-anchor" href="#!">{`Women's T-Shirts`}</a></li>
-                      <li className="mb-2"><a className="reset-anchor" href="#!">{`Men's T-Shirts`}</a></li>
-                      <li className="mb-2"><a className="reset-anchor" href="#!">Dresses</a></li>
-                      <li className="mb-2"><a className="reset-anchor" href="#!">Novelty socks</a></li>
-                      <li className="mb-2"><a className="reset-anchor" href="#!">{`Women's sunglasses`}</a></li>
-                      <li className="mb-2"><a className="reset-anchor" href="#!">{`Men's sunglasses`}</a></li>
-                    </ul>
+                    <div className="py-2 px-4 bg-dark text-white mb-3"><strong className="small text-uppercase fw-bold">Thể loại sách &amp; Acc</strong></div>
+                    {category}
                     <div className="py-2 px-4 bg-light mb-3"><strong className="small text-uppercase fw-bold">Health &amp; Beauty</strong></div>
                     <ul className="list-unstyled small text-muted ps-lg-4 font-weight-normal">
                       <li className="mb-2"><a className="reset-anchor" href="#!">Shavers</a></li>
