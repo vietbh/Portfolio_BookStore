@@ -5,7 +5,7 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tiệm Sách (Vite + React)</title>
+    <title></title>
     <!-- gLightbox gallery-->
     <link rel="stylesheet" href="public/vendor/glightbox/css/glightbox.min.css">
     <!-- Range slider-->
@@ -26,6 +26,14 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="public/img/favicon.png">
     <meta name="robots" content="all,follow">
+    <script>
+      let alertShow = false;
+      const interval = setInterval(()=>{
+        document.title = alertShow ? 'Tiệm Sách' 
+                                   : 'Chào mừng bạn đã đến với';
+        alertShow = !alertShow;
+      },1000);
+    </script>
   </head>
   <body>
     <div id="root"></div>

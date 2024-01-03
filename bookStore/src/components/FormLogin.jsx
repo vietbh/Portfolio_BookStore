@@ -110,6 +110,7 @@ function FormLogin() {
               placeholder="Nhập tài khoản"
               aria-describedby="inputGroupPrepend"
               name='email'
+              value={formData.email}
               onChange={handleChange}
               required
             />
@@ -127,6 +128,7 @@ function FormLogin() {
               type={showPass ?'text':'password'}
               placeholder="Vui lòng nhập mật khẩu"
               name='password'
+              value={formData.password}
               onChange={handleChange}
               aria-describedby='validationPassword'
               required

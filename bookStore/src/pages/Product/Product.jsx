@@ -253,22 +253,24 @@ function Product() {
                     {/*
                     <!-- PRODUCT-->
                     */}
-                    {loading &&  <div className="col-lg-12 col-sm-4"><h2 className="text-center my-4">Đang tải...</h2></div> }
+                    {loading &&  <div className="col-lg-12 col-sm-4"><h2 className="text-center my-4 ">Đang tải...</h2></div> }
                         {/* Show san pham */}
                         {product}
                     </div>
                     {/*
                     <!-- PAGINATION-->
                     */}
-                    <nav aria-label="Page navigation example">
-                      <ul className="pagination justify-content-center justify-content-lg-end">
-                        <li className="page-item mx-1"><a className="page-link" href="#!" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                        <li className="page-item mx-1 active"><a className="page-link" href="#!">1</a></li>
-                        <li className="page-item mx-1"><a className="page-link" href="#!">2</a></li>
-                        <li className="page-item mx-1"><a className="page-link" href="#!">3</a></li>
-                        <li className="page-item ms-1"><a className="page-link" href="#!" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                      </ul>
-                    </nav>
+                    {!loading &&(
+                      <nav aria-label="Page navigation example ">
+                        <ul className="pagination justify-content-center justify-content-lg-end ">
+                          <li className="page-item mx-1"><a className="page-link" href="#!" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                          <li className="page-item mx-1 active"><a className="page-link" href="#!">1</a></li>
+                          <li className="page-item mx-1"><a className="page-link" href="#!">2</a></li>
+                          <li className="page-item mx-1"><a className="page-link" href="#!">3</a></li>
+                          <li className="page-item ms-1"><a className="page-link" href="#!" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                      </nav>
+                    )}
                   </div>
                 </div>
               </div>

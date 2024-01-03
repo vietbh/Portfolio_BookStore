@@ -83,8 +83,8 @@ const Cart = () => {
             <div className="row">
                 <div className="col-lg-8 mb-4 mb-lg-0">
                 {/* <!-- CART TABLE--> */}
-                <div className="table-responsive mb-4">
-                    <table className="table text-nowrap">
+                <div className="table-responsive  mb-4">
+                    <table className="table table-fixed text-nowrap">
                     <thead className="bg-light">
                         <tr>
                         <th className="border-0 p-3" scope="col"> <strong className="text-sm text-uppercase">STT</strong></th>
@@ -151,7 +151,7 @@ const Cart = () => {
                     <ul className="list-unstyled mb-0">
                         <li className="d-flex align-items-center justify-content-between"><strong className="text-uppercase small font-weight-bold">Tạm tính</strong><span className="text-muted small">{totalCart}đ</span></li>
                         <li className="border-bottom my-2"></li>
-                        <li className="d-flex align-items-center justify-content-between mb-4"><strong className="text-uppercase small font-weight-bold">Tổng tiền</strong><span>{totalCart}đ</span></li>
+                        <li className="d-flex align-items-center justify-content-between mb-4"><strong className="text-uppercase small font-weight-bold">Tổng cộng</strong><span>{totalCart}đ</span></li>
                         <li>
                         <form action="#">
                             <div className="input-group mb-0">
